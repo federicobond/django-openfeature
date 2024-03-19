@@ -17,13 +17,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.11"
-      - name: Install pre-commit
-        run: pip install pre-commit
+          python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install hatch pre-commit
       - name: Lint with pre-commit
-        run: pre-commit run --all-files
+        run: hatch run pre-commit run --all-files
 
   build:
     runs-on: ubuntu-latest
