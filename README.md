@@ -125,6 +125,9 @@ DEBUG_TOOLBAR_PANELS = [
 The Feature Flags panel will show you the feature flag evaluations for the current request, the request evaluation context
 and the configured providers for those evaluations.
 
+<img width="928" alt="Feature Flags Debug Toolbar Panel" src="https://github.com/federicobond/django-openfeature/assets/138426/b22d5e1c-ac93-4a1f-af8d-e0206abc6c02">
+
+
 ### Testing Utilities
 
 django-openfeature provides a set of utilities to help you test your feature flags. To use them, you must set the provider to an instance of `django_openfeature.provider.DjangoTestProvider` in your test settings.
