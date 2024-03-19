@@ -157,8 +157,7 @@ def test_my_feature_enabled(self):
 
 ## TODO
 
- * [ ] Add support for OpenFeature domains
- * [ ] Allow `override_feature` to be used as a context manager
+ * [ ] Add support for OpenFeature domains (requires SDK release)
 
 ## License
 
