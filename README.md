@@ -1,6 +1,8 @@
 django-openfeature
 ==================
 
+> ⚠️ Caution: this repository is a work-in-progress. ⚠️
+
 Django OpenFeature is a set of utilities to use OpenFeature in your Django applications.
 
 ## Installation
