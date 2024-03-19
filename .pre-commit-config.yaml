@@ -1,0 +1,37 @@
+ci:
+  autoupdate_commit_msg: "chore: update pre-commit hooks"
+  autofix_commit_msg: "style: pre-commit fixes"
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+        exclude: ^tests/snapshots/
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.3.3"
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  - repo: https://github.com/psf/black
+    rev: "23.3.0"
+    hooks:
+      - id: black
+        exclude: ^tests/snapshots/
+
+  - repo: https://github.com/mgedmin/check-manifest
+    rev: "0.47"
+    hooks:
+      - id: check-manifest
+        stages: [manual]

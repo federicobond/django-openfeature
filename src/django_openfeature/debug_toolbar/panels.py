@@ -1,10 +1,10 @@
+from debug_toolbar.panels import Panel
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext
 from openfeature.api import add_hooks, get_provider_metadata
 from openfeature.flag_evaluation import FlagEvaluationDetails
 from openfeature.hook import Hook, HookContext
 
-from debug_toolbar.panels import Panel
 from django_openfeature import get_evaluation_context
 
 

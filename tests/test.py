@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from django_openfeature.test import override_feature
 from django_openfeature.provider import DjangoTestProvider
-from openfeature.api import set_provider, get_client
+from django_openfeature.test import override_feature
+from openfeature.api import get_client, set_provider
 from openfeature.provider.no_op_provider import NoOpProvider
 
 
