@@ -10,7 +10,7 @@ __all__ = ["override_feature"]
 def override_feature(name, value):
     def decorator(func):
         @wraps(func)
-        def wrapper(self, *args, **kwargs):
+        def wrapper(*args, **kwargs):
             # NOTE: using undocumented client property to access the provider
             provider = api.get_client().provider
             if not isinstance(provider, DjangoTestProvider):
@@ -19,7 +19,7 @@ def override_feature(name, value):
                 )
             provider.push_overrides({name: value})
             try:
-                func(self, *args, **kwargs)
+                return func(*args, **kwargs)
             finally:
                 provider.pop_overrides()
 
