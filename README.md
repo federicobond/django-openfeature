@@ -1,6 +1,10 @@
 django-openfeature
 ==================
 
+![build status](https://github.com/federicobond/django-openfeature/actions/workflows/python-package.yml/badge.svg?branch=main)
+![release](https://img.shields.io/pypi/v/django-openfeature)
+![python versions](https://img.shields.io/pypi/pyversions/django-openfeature)
+
 > ⚠️ Caution: this repository is a work-in-progress. ⚠️
 
 Django OpenFeature is a set of utilities to use OpenFeature in your Django applications.
