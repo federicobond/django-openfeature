@@ -1,5 +1,5 @@
 import inspect
-from functools import cache
+from functools import lru_cache
 
 from django.conf import settings
 from django.dispatch import receiver
@@ -13,7 +13,7 @@ CONFIG_DEFAULTS = {
 IMPORT_STRINGS = ["CONTEXT_EVALUATOR"]
 
 
-@cache
+@lru_cache(maxsize=None)
 def get_config():
     user_config = getattr(settings, "OPENFEATURE", {})
     config = CONFIG_DEFAULTS.copy()
