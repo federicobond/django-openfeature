@@ -1,0 +1,62 @@
+{% load i18n %}
+<h4>{% trans "Flag Evaluations" %}</h4>
+<table>
+    <thead>
+      <tr>
+        <th>{% trans "Flag Key" %}</th>
+        <th>{% trans "Variant" %}</th>
+        <th>{% trans "Value" %}</th>
+        <th>{% trans "Reason" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for evaluation in flag_evaluations %}
+      <tr>
+        <td><code>{{ evaluation.flag_key }}</code></td>
+        <td>{{ evaluation.variant|default:"" }}</td>
+        <td>{{ evaluation.value }}</td>
+        <td>{{ evaluation.reason }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+<h4>Evaluation Context</h4>
+<table>
+    <thead>
+      <tr>
+        <th>{% trans "Key" %}</th>
+        <th>{% trans "Value" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i><code>targeting_key</code></i></td>
+        <td>{{ targeting_key }}</td>
+      </tr>
+      {% for key, value in attributes.items %}
+      <tr>
+        <td><code>{{ key }}</code></td>
+        <td>{{ value }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+<h4>Providers</h4>
+<table>
+    <thead>
+      <tr>
+        <th>{% trans "Domain" %}</th>
+        <th>{% trans "Provider Name" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for domain, metadata in providers.items %}
+      <tr>
+        <td>{{ domain }}</td>
+        <td>{{ metadata.name }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
