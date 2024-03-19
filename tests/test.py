@@ -37,3 +37,9 @@ class Tests(TestCase):
             return foo + bar
 
         self.assertEqual(function(), "foobar")
+
+    def test_override_feature_as_context_manager(self):
+        set_provider(DjangoTestProvider())
+
+        with override_feature("foo", True):
+            self.assertTrue(get_client().get_boolean_value("foo", False))

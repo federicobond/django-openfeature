@@ -123,6 +123,14 @@ and the configured providers for those evaluations.
 
 django-openfeature provides a set of utilities to help you test your feature flags. To use them, you must set the provider to an instance of `django_openfeature.provider.DjangoTestProvider` in your test settings.
 
+```python
+# in your test settings
+import openfeature.api
+from django_openfeature.provider import DjangoTestProvider
+
+openfeature.api.set_provider(DjangoTestProvider())
+```
+
 `override_feature` is a function decorator that allows you to override the value of a feature flag for the duration of a test.
 
 ```python
@@ -134,6 +142,16 @@ def test_my_feature_enabled(self):
 ```
 
 Decorators can be stacked to override multiple feature flags.
+
+You can also use `override_feature` as a context manager.
+
+```python
+from django_openfeature.test import override_feature
+
+def test_my_feature_enabled(self):
+    with override_feature('my_feature', True):
+        # ...
+```
 
 ## TODO
 
