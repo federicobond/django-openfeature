@@ -5,9 +5,14 @@ from django.template.base import (
 )
 from django.template.library import Library
 
-from django_openfeature import feature
+from django_openfeature import feature as _feature
 
 register = Library()
+
+
+@register.simple_tag(takes_context=True)
+def feature(context, key: str, default_value: bool):
+    return _feature(context["request"], key, default_value)
 
 
 class TemplateFeatureFlagParser:
@@ -30,7 +35,7 @@ class FlagCondition:
 
     def eval(self, context):
         flag_key = self.flag_key.resolve(context)
-        return feature(context["request"], flag_key, False)
+        return _feature(context["request"], flag_key, False)
 
 
 @register.tag("iffeature")
