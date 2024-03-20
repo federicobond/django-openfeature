@@ -57,6 +57,20 @@ Inside templates, you can use the `feature` template tag to evaluate feature fla
 {% endif %}
 ```
 
+As an alternative to evaluating feature flags to a variable you can use the `iffeature` template tag.
+It will output the contents of the block if the boolean flag resolves to True. It supports a single
+`{% else %}` clause that will be displayed otherwise.
+
+```html
+{% load openfeature %}
+
+{% iffeature 'my_feature' %}
+    <p>Feature is enabled</p>
+{% else %}
+    <p>Feature is disabled</p>
+{% endif %}
+```
+
 ### Configuration
 
 ```python
