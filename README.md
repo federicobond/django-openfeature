@@ -37,8 +37,8 @@ from django_openfeature import feature
 feature(request, 'my_feature', False)
 ```
 
-The `feature` function will automatically infer the type of the feature flag based on the default value
-provided.
+The `feature` function will infer the type of the feature flag based on the default value provided
+and call the appropriate resolver method.
 
 It will also create an evaluation context from the request. This context can be configured via the
 `OPENFEATURE` setting (described below).
