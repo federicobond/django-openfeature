@@ -34,6 +34,11 @@ Homepage = "https://github.com/federicobond/django-openfeature"
 requires = ['setuptools>=40.8.0']
 build-backend = 'setuptools.build_meta'
 
+[tool.hatch.envs.default]
+dependencies = [
+    "django-debug-toolbar"
+]
+
 [tool.hatch.envs.default.scripts]
 test = "django-admin test"
 
