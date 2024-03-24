@@ -34,6 +34,13 @@ Homepage = "https://github.com/federicobond/django-openfeature"
 requires = ['setuptools>=40.8.0']
 build-backend = 'setuptools.build_meta'
 
+[tool.hatch.envs.default.scripts]
+test = "django-admin test"
+
+[tool.hatch.envs.default.env-vars]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+PYTHONPATH = "."
+
 [tool.ruff]
 target-version = "py38"
 

@@ -6,7 +6,7 @@ from openfeature.api import get_client, set_provider
 from openfeature.provider.no_op_provider import NoOpProvider
 
 
-class Tests(TestCase):
+class OverrideFeatureTests(TestCase):
     def test_override_feature_requires_django_test_provider(self):
         set_provider(NoOpProvider())
 

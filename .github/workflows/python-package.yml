@@ -39,4 +39,4 @@ jobs:
       - name: Install dependencies
         run: pip install hatch
       - name: Run tests
-        run: hatch run python -m unittest
+        run: hatch run test
