@@ -9,6 +9,13 @@ django-openfeature
 
 Django OpenFeature is a set of utilities to use OpenFeature in your Django applications.
 
+## Features
+
+ * Django Debug Toolbar integration
+ * Templatetags for flag evaluation
+ * Automatic evaluation context from request
+ * Flag override mechanism for testing
+
 ## Installation
 
 ```
