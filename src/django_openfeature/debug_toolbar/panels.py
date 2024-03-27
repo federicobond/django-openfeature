@@ -1,3 +1,5 @@
+from typing import List
+
 from debug_toolbar.panels import Panel
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext
@@ -17,7 +19,7 @@ class DebugToolbarHook(Hook):
     ):
         self.evaluations.append(details)
 
-    def extract_evaluations(self) -> list[FlagEvaluationDetails]:
+    def extract_evaluations(self) -> List[FlagEvaluationDetails]:
         evaluations = self.evaluations
         self.evaluations = []
         return evaluations
