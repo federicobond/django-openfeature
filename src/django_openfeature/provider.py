@@ -37,7 +37,7 @@ class DjangoTestProvider(AbstractProvider):
         default_value: bool,
         evaluation_context: Optional[EvaluationContext] = None,
     ) -> FlagResolutionDetails[bool]:
-        if flag_key in self.overrides:
+        if flag_key in self._overrides:
             value = self._overrides[flag_key]
             if not isinstance(value, bool):
                 raise TypeMismatchError(f"Expected type bool but got {type(value)}")
