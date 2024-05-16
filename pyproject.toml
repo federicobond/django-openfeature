@@ -1,6 +1,6 @@
 [project]
 name = "django-openfeature"
-version = "0.1.2"
+version = "0.1.3"
 description = "OpenFeature integration for Django"
 readme = "README.md"
 authors = [{ name = "Federico Bond", email = "federicobond@gmail.com" }]
