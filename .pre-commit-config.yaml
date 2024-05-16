@@ -4,7 +4,7 @@ ci:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -19,17 +19,17 @@ repos:
         exclude: ^tests/snapshots/
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.3.4"
+    rev: "v0.4.4"
     hooks:
       - id: ruff
         args: ["--fix"]
       - id: ruff-format
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.9.0"
+    rev: "v1.10.0"
     hooks:
       - id: mypy
   - repo: https://github.com/mgedmin/check-manifest
-    rev: "0.47"
+    rev: "0.49"
     hooks:
       - id: check-manifest
         stages: [manual]
