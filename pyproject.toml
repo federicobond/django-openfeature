@@ -34,6 +34,12 @@ Homepage = "https://github.com/federicobond/django-openfeature"
 requires = ['setuptools>=40.8.0']
 build-backend = 'setuptools.build_meta'
 
+[tool.setuptools.package-data]
+"django_openfeature" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.hatch.envs.default]
 dependencies = [
     "django-debug-toolbar"
