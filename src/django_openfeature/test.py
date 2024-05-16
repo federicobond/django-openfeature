@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from typing import Dict, List, Union
 
 from openfeature import api
 
@@ -8,7 +9,7 @@ __all__ = ["override_feature"]
 
 
 @contextmanager
-def override_feature(name, value):
+def override_feature(name: str, value: Union[bool, str, int, float, Dict, List]):
     # NOTE: using undocumented client property to access the provider
     provider = api.get_client().provider
     if not isinstance(provider, DjangoTestProvider):
