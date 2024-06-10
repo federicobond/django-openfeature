@@ -34,8 +34,18 @@ class FlagCondition:
         self.flag_key = flag_key
 
     def eval(self, context):
+        if self.__class__ not in context.render_context:
+            context.render_context[self.__class__] = {}
+        evaluation_cache = context.render_context[self.__class__]
+
         flag_key = self.flag_key.resolve(context)
-        return _feature(context["request"], flag_key, False)
+        flag_value = evaluation_cache.get(flag_key)
+
+        if flag_value is None:
+            flag_value = _feature(context["request"], flag_key, False)
+            evaluation_cache[flag_key] = flag_value
+
+        return flag_value
 
 
 @register.tag("iffeature")
