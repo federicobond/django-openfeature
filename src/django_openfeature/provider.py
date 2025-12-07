@@ -5,10 +5,9 @@ from openfeature.evaluation_context import EvaluationContext
 from openfeature.exception import TypeMismatchError
 from openfeature.flag_evaluation import FlagResolutionDetails, Reason
 from openfeature.hook import Hook
-from openfeature.provider import FeatureProvider
+from openfeature.provider import AbstractProvider, FeatureProvider
 from openfeature.provider.metadata import Metadata
 from openfeature.provider.no_op_provider import NoOpProvider
-from openfeature.provider.provider import AbstractProvider
 
 
 class DjangoTestProvider(AbstractProvider):
