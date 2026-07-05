@@ -1,8 +1,7 @@
 from django.test import TestCase, override_settings
+from django_openfeature.provider import DjangoTestProvider
 from openfeature import api
 from openfeature.provider.no_op_provider import NoOpProvider
-
-from django_openfeature.provider import DjangoTestProvider
 
 
 class DummyProvider(NoOpProvider):
