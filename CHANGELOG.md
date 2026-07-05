@@ -1,6 +1,13 @@
 Changelog
 =========
 
+## Unreleased
+
+ * Add `PROVIDER` key to the `OPENFEATURE` setting to configure the global
+   OpenFeature provider declaratively (class path, factory function path,
+   or provider instance), applied on app registry load and on
+   `override_settings`
+
 ## 0.1.4
 
  * Drop support for python 3.8, 3.9, add support for 3.13, 3.14

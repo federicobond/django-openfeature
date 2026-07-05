@@ -1,6 +1,3 @@
-import openfeature.api
-from django_openfeature.provider import DjangoTestProvider
-
 SECRET_KEY = "secret"  # noqa: S105
 
 MIDDLEWARE = (
@@ -52,4 +49,6 @@ TEMPLATES = [
     },
 ]
 
-openfeature.api.set_provider(DjangoTestProvider())
+OPENFEATURE = {
+    "PROVIDER": "django_openfeature.provider.DjangoTestProvider",
+}

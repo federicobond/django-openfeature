@@ -82,9 +82,29 @@ It will output the contents of the block if the boolean flag resolves to True. I
 
 ```python
 OPENFEATURE = {
+    "PROVIDER": "myapp.utils.get_openfeature_provider",
     "CONTEXT_EVALUATOR": "myapp.utils.get_evaluation_context",
 }
 ```
+
+The `PROVIDER` setting configures the global OpenFeature provider when the app registry
+loads, saving you from calling `openfeature.api.set_provider()` yourself at import time.
+It should point to a provider class, a zero-argument factory function that returns a
+provider instance, or a provider instance. When omitted (or `None`), django-openfeature
+does not touch the provider and you can keep setting it manually.
+
+```python
+# myapp/utils.py
+from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+from django.conf import settings
+
+def get_openfeature_provider():
+    client = DevCycleCloudClient(settings.DEVCYCLE_API_KEY, DevCycleCloudOptions())
+    return client.get_openfeature_provider()
+```
+
+The provider is re-configured when the `OPENFEATURE` setting changes, so
+`override_settings(OPENFEATURE={"PROVIDER": ...})` works as expected in tests.
 
 The `CONTEXT_EVALUATOR` setting should point to a function that receives a request and returns an OpenFeature EvaluationContext as defined in the `openfeature-sdk` package.
 
@@ -151,14 +171,13 @@ and the configured providers for those evaluations.
 
 ### Testing Utilities
 
-django-openfeature provides a set of utilities to help you test your feature flags. To use them, you must set the provider to an instance of `django_openfeature.provider.DjangoTestProvider` in your test settings.
+django-openfeature provides a set of utilities to help you test your feature flags. To use them, you must set the provider to `django_openfeature.provider.DjangoTestProvider` in your test settings.
 
 ```python
 # in your test settings
-import openfeature.api
-from django_openfeature.provider import DjangoTestProvider
-
-openfeature.api.set_provider(DjangoTestProvider())
+OPENFEATURE = {
+    "PROVIDER": "django_openfeature.provider.DjangoTestProvider",
+}
 ```
 
 `override_feature` is a function decorator that allows you to override the value of a feature flag for the duration of a test.
