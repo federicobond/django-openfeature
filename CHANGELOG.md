@@ -1,7 +1,7 @@
 Changelog
 =========
 
-## Unreleased
+## 0.2.0
 
  * Add `PROVIDER` key to the `OPENFEATURE` setting to configure the global
    OpenFeature provider declaratively (class path, factory function path,
